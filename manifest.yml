@@ -1,0 +1,19 @@
+---
+declared-services:
+  Conversation:
+    label: conversation
+    plan: free
+  weather-company-data:
+    label: weather
+    plan: free
+applications:
+- name: conv-201-xxx-weather
+  command: npm start
+  path: .
+  memory: 512M
+  instances: 1
+  services:
+  - Conversation
+  - weather-company-data
+  env:
+    NPM_CONFIG_PRODUCTION: false
